@@ -1,0 +1,39 @@
+p {
+    max-width: 500px;
+}
+
+body {
+    color: black;
+    background-color: beige;
+}
+
+.highlight {
+    background-color: blue;
+    color: rgb(208, 208, 208);
+}
+
+p:hover {
+    color: red;
+}
+
+p:hover .highlight {
+    color: white;
+}
+
+.darkmode {
+    color:rgb(208, 208, 208);
+    background-color: rgb(0, 30, 56);
+}
+
+.darkmode .highlight {
+    background-color: rgb(255, 225, 0);
+    color: rgb(128, 128, 128);
+}
+
+.darkmode p:hover {
+    color: green;
+}
+
+.darkmode p:hover .highlight {
+    color: black;
+}
