@@ -32,7 +32,7 @@ npm install --save @emotion/react
 
 ### Setting up CSS Prop
 
-Every file that uses the ``css`` prop (which we will discuss below), must add the following pragma directives to the top
+Every file that uses the ``css`` prop (which we will discuss below), must add the following pragma directive to the top
 of your file:
 
 ```
