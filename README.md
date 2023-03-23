@@ -76,6 +76,9 @@ Let's start with a simple div.
 
 ### Adding the CSS styles
 
+We can use object styles just like in regular React, but with some extras. However, one more interesting part of Emotion
+is the `css` prop, which allows us to write standard CSS, except we can also include JS variables in the mix!
+
 To add in the background color and text color, let's start with the basic css prop:
 
 ```jsx
@@ -98,7 +101,8 @@ We can put regular CSS statements within the string templates here:
 ```
 
 This is great, but we **do not want to** copy and paste the variable contents of the provided
-colors. Instead, we can use variable interpolation! Adding in ``${variableName}`` will substitute ``variableName`` into the CSS prop.
+colors. Instead, we can use variable interpolation! Adding in ``${variableName}`` will substitute ``variableName`` into
+the CSS prop.
 
 ```jsx
 <div css={css`
@@ -109,7 +113,8 @@ colors. Instead, we can use variable interpolation! Adding in ``${variableName}`
 </div>
 ```
 
-Now, let's add the hover color. Emotion provides **nested selectors** to allow us to do this easily. We can use the ``&`` symbol to denote the *current class* whose CSS rules are applied to an element.
+Now, let's add the hover color. Emotion provides **nested selectors** to allow us to do this easily. We can use
+the ``&`` symbol to denote the *current class* whose CSS rules are applied to an element.
 
 This would mean we can do ``&:hover`` to add in a hovering style.
 
