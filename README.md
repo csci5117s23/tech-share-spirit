@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Emotion Tech Share
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Team Spirit, 3/29/23
 
-## Available Scripts
+## Using this Example Repository
 
-In the project directory, you can run:
+Set up the examples we're going to go through in this tech share.
 
-### `npm start`
+### Clone Repository
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+git clone https://github.com/csci5117s23/tech-share-spirit.git
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Setup Project
 
-### `npm test`
+```
+npm install
+npm run start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setting up Emotion
 
-### `npm run build`
+Our guide follows using Emotion with React and Create-React-App specifically. Emotion is framework agnostic and can be
+set up with other techniques, please consult the [official installation docs](https://emotion.sh/docs/install).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Package Install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+npm install --save @emotion/react
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Setting up CSS Prop
 
-### `npm run eject`
+Every file that uses the ``css`` prop (which we will discuss below), must add the following pragma directives to the top
+of your file:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+/** @jsx jsx */
+/** @jsxRuntime classic */
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+These lines are necessary for ``create-react-app`` because we cannot add custom Babel configurations with CRA. If you
+are using your own webpack setup, you can also follow the [Babel preset](https://emotion.sh/docs/css-prop#babel-preset)
+setup if you do not want to add these two pragmas everywhere that you use the ``css`` prop.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Examples
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Example Structure
 
-## Learn More
+All examples we will show in class are within the ``examples/`` folder. These consist of two files each:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+ExampleN.js
+ExampleNComplete.js
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Each example contains the structure to follow along with what we are showing in class, and you can see the complete
+example
+on the right to see what your end-goal is.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Example 1: CSS in JS
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+TODO
