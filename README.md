@@ -48,7 +48,7 @@ setup if you do not want to add these two pragmas everywhere that you use the ``
 
 ### Example Structure
 
-All examples we will show in class are within the ``examples/`` folder. These consist of two files each:
+All examples we will show in class are within the ``src/examples/`` folder. These consist of two files each:
 
 ```
 ExampleN.js
