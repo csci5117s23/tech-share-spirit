@@ -6,7 +6,7 @@ import React from "react";
 export const examples = [
     {
         id: "ex1",
-        name: "Example 1",
+        name: "Example 1 - CSS Prop",
         elements: [
             (<Example1 />),
             (<Example1Complete />),
