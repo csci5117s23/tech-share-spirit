@@ -36,8 +36,7 @@ Every file that uses the ``css`` prop (which we will discuss below), must add th
 of your file:
 
 ```
-/** @jsx jsx */
-/** @jsxRuntime classic */
+/** @jsxImportSource @emotion/react */
 ```
 
 These lines are necessary for ``create-react-app`` because we cannot add custom Babel configurations with CRA. If you
