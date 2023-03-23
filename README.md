@@ -59,7 +59,87 @@ Each example contains the structure to follow along with what we are showing in 
 example
 on the right to see what your end-goal is.
 
-
 ## Example 1: CSS in JS
 
-TODO
+This example walks you through how to use the ``css`` prop in emotion to apply CSS styles in JS.
+
+It also covers nested selectors and variable interpolation.
+
+### Creating the div
+
+Let's start with a simple div.
+
+```jsx
+<div>
+    Hover me to turn purple!
+</div>
+```
+
+### Adding the CSS styles
+
+To add in the background color and text color, let's start with the basic css prop:
+
+```jsx
+<div css={css`
+
+`}>
+    Hover me to turn purple!
+</div>
+```
+
+We can put regular CSS statements within the string templates here:
+
+```jsx
+<div css={css`
+    background-color: red;
+    color: blue;
+`}>
+    Hover me to turn purple!
+</div>
+```
+
+This is great, but we **do not want to** copy and paste the variable contents of the provided
+colors. Instead, we can use variable interpolation! Adding in ``${variableName}`` will substitute ``variableName`` into the CSS prop.
+
+```jsx
+<div css={css`
+    background-color: ${backgroundColor};
+    color: ${textColor};
+`}>
+    Hover me to turn purple!
+</div>
+```
+
+Now, let's add the hover color. Emotion provides **nested selectors** to allow us to do this easily. We can use the ``&`` symbol to denote the *current class* whose CSS rules are applied to an element.
+
+This would mean we can do ``&:hover`` to add in a hovering style.
+
+```jsx
+<div css={css`
+    background-color: ${backgroundColor};
+    color: ${textColor};
+    
+    &:hover {
+      color: ${hoverTextColor};
+    }
+`}>
+    Hover me to turn purple!
+</div>
+```
+
+We'll add in the ``:focus`` and ``:active`` pseudo-classes too, just for good measure:
+
+```jsx
+<div css={css`
+    background-color: ${backgroundColor};
+    color: ${textColor};
+    
+    &:hover,:focus,:active {
+      color: ${hoverTextColor};
+    }
+`}>
+    Hover me to turn purple!
+</div>
+```
+
+And we're done!
