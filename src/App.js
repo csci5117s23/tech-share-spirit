@@ -1,6 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 
+import Example21 from './examples/Example21Complete.js';
+import Example22 from './examples/Example22Complete.js';
+import Example23 from './examples/Example22Complete.js';
+
 function App() {
   return (
     <div className="App">
@@ -17,6 +21,9 @@ function App() {
         >
           Learn React
         </a>
+        <Example21></Example21>
+        <Example22></Example22>
+        <Example23></Example23>
       </header>
     </div>
   );
