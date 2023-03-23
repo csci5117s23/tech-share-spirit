@@ -8,10 +8,12 @@ const paragraphWidth = "500px";
 
 const backgroundColorNormal = "beige";
 const textColorNormal = "black";
-const hoverColorNormal = "red";
 const highlightNormal = "blue";
+const textHighlightNormal = "rgb(208, 208, 208)";
+const hoverColorNormal = "red";
 const hoverHighlightTextNormal = "white"
 const normal = css`
+    max-width: ${paragraphWidth};
     background-color: ${backgroundColorNormal};
     color: ${textColorNormal};
     
@@ -19,8 +21,9 @@ const normal = css`
         color: ${hoverColorNormal};
     }
 
-    &.highlight: {
-        ${highlightNormal};
+    & span {
+        background-color: ${highlightNormal};
+        color: ${textHighlightNormal};
 
         &:hover {
             color: ${hoverHighlightTextNormal};
@@ -31,44 +34,55 @@ const normal = css`
 const backgroundColorDark = "rgb(0, 30, 56)";
 const textColorDark = "rgb(208, 208, 208";
 const highlightDark = "rgb(255, 225, 0)";
+const textHighlightDark = "rgb(128, 128, 128)";
 const hoverColorDark = "greenyellow";
 const hoverHighlightTextDark = "black";
 const dark = css`
+    max-width: ${paragraphWidth};
     background-color: ${backgroundColorDark};
-    color: ${textColorDark};
+    & p {
+        color: ${textColorDark};
+    }
     
     &:hover {
         color: ${hoverColorDark};
     }
 
-    &.highlight: {
-        ${highlightDark};
+    & span {
+        background-color: ${highlightDark};
+        color: ${textHighlightDark}
 
         &:hover {
             color: ${hoverHighlightTextDark};
         }
     }
 `
+// let darkMode = false;
 
-export const Example3Complete = () => {
+// function toggleDarkmode() {
+//     darkMode = !darkMode;
+//     if(darkMode) {
+//         document.getElementsByTagName("body")[0].classList.add("darkmode");
+//     } else {
+//         document.getElementsByTagName("body")[0].classList.remove("darkmode");
+//     }
+// }
+
+export const ExampleNestComplete = () => {
     return (<>
-        <div css={normal}>
-            <h1>Hover over some text to change the color of the paragraph!</h1>
+        <h1>Hover over some text to change the color of the paragraph!</h1>
+        <div css={dark}>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                 Praesent non est nulla. 
-                Duis scelerisque massa et malesuada commodo. Nulla facilisi. 
-                <span class="highlight">
-                    Donec auctor nibh a gravida auctor. Nunc ac fermentum nisi. 
-                </span>
-                Sed vestibulum, metus sed aliquet lacinia, felis elit interdum velit, sed ullamcorper orci mi consectetur ex. 
+                Duis scelerisque massa et malesuada commodo. Nulla facilisi. <span>
+                Donec auctor nibh a gravida auctor. Nunc ac fermentum nisi. 
+                </span> Sed vestibulum, metus sed aliquet lacinia, felis elit interdum velit, sed ullamcorper orci mi consectetur ex. 
             </p>
             <p>
-                Aliquam posuere elementum auctor. Duis viverra iaculis vestibulum. 
-                <span class="highlight">
-                    Quisque vel hendrerit sapien. Mauris ultrices maximus mauris, non rutrum neque egestas a.
-                </span> 
-                Vivamus rhoncus ac magna eu ultricies. 
+                Aliquam posuere elementum auctor. Duis viverra iaculis vestibulum. <span>
+                Quisque vel hendrerit sapien. Mauris ultrices maximus mauris, non rutrum neque egestas a.
+                </span> Vivamus rhoncus ac magna eu ultricies. 
                 Nulla ultricies augue vitae neque hendrerit, eu vestibulum ipsum elementum. 
                 Nunc sed libero ligula.
             </p>
@@ -77,11 +91,9 @@ export const Example3Complete = () => {
                 Maecenas porttitor mi ac lobortis molestie. 
                 Sed at luctus ligula, volutpat sollicitudin eros. 
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Aenean hendrerit urna a dolor tristique, eget fringilla metus efficitur. 
-                <span class="highlight">
-                    Interdum et malesuada fames ac ante ipsum primis in faucibus.
-                </span> 
-                Nam a commodo nibh. Donec sollicitudin dapibus lectus, et maximus nibh porta nec. 
+                Aenean hendrerit urna a dolor tristique, eget fringilla metus efficitur. <span>
+                Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                </span> Nam a commodo nibh. Donec sollicitudin dapibus lectus, et maximus nibh porta nec. 
             </p>
             <p>
                 Suspendisse semper tortor nec rutrum ultrices. Phasellus ut justo 
@@ -91,7 +103,7 @@ export const Example3Complete = () => {
                 lobortis, ante eros tincidunt augue, sed blandit lectus diam sed
                 nulla. Vivamus neque risus, bibendum id nunc nec, consectetur 
                 dignissim tellus. Cras vel molestie lorem, eu suscipit quam. 
-                <span class="highlight">
+                <span>
                     Praesent hendrerit lectus quis lectus elementum venenatis.
                 </span>
             </p>

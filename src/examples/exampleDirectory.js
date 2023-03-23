@@ -1,5 +1,6 @@
 import {Example1} from "./example1-css-prop/Example1";
 import {Example1Complete} from "./example1-css-prop/Example1Complete";
+import {ExampleNestComplete} from "./example-nest/ExampleNestComplete";
 import React from "react";
 
 
@@ -10,6 +11,13 @@ export const examples = [
         elements: [
             (<Example1 />),
             (<Example1Complete />),
+        ]
+    },
+    {
+        id: "nest",
+        name: "Nested Selector Example",
+        elements: [
+            (<ExampleNestComplete />)
         ]
     }
 ]
