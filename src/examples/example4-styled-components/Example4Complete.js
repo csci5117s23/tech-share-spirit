@@ -5,14 +5,14 @@ const success = "green"
 const danger = "red" 
 
 const Container = styled.div `
-display: flex;
-flex-direction: column; 
+  display: flex;
+  flex-direction: column; 
 `
 const MyButton = styled.button`
     background-color: ${props => (props.success ? success : danger)};
     margin-left: 10px;
     margin-right: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
     color: white;
 `
 
