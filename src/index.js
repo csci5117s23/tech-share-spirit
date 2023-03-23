@@ -5,10 +5,11 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {ExampleRender} from "./ExampleRender";
 import {Example1} from "./examples/example1-css-prop/Example1";
 import {Example1Complete} from "./examples/example1-css-prop/Example1Complete";
+import {examples} from "./examples/exampleDirectory";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const examples = [
+const allExamples = [
     {
         id: "", // base
         name: "Home",
@@ -16,19 +17,12 @@ const examples = [
             <div>Welcome! Please choose an example from the tab above.</div>
         ]
     },
-    {
-        id: "ex1",
-        name: "Example 1",
-        elements: [
-            (<Example1 />),
-            (<Example1Complete />),
-        ]
-    }
+    ...examples
 ]
 
-const routes = examples.map(example => ({
+const routes = allExamples.map(example => ({
     path: `/${example.id}`,
-    element: <ExampleRender elements={example.elements} key={example.id} examples={examples}></ExampleRender>
+    element: <ExampleRender elements={example.elements} key={example.id} examples={allExamples}></ExampleRender>
 }))
 
 const router = createBrowserRouter(routes)
