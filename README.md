@@ -27,7 +27,7 @@ set up with other techniques, please consult the [official installation docs](ht
 ### Package Install
 
 ```
-npm install --save @emotion/react
+npm install --save @emotion/react @emotion/styled
 ```
 
 ### Setting up CSS Prop
