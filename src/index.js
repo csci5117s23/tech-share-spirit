@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {ExampleRender} from "./ExampleRender";
+import {Example1} from "./examples/example1-css-prop/Example1";
+import {Example1Complete} from "./examples/example1-css-prop/Example1Complete";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -18,9 +20,8 @@ const examples = [
         id: "ex1",
         name: "Example 1",
         elements: [
-            (<div>Row 1</div>),
-            (<div>Row 2</div>),
-            (<div>Row 3</div>)
+            (<Example1 />),
+            (<Example1Complete />),
         ]
     }
 ]

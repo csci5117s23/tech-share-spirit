@@ -1,12 +1,13 @@
 /** @jsx jsx */
 /** @jsxRuntime classic */
 
+import React from 'react';
 import {css, jsx} from "@emotion/react";
 
 const backgroundColor = "#8c1c68"
 const textColor = "#ffffff"
 const hoverTextColor = "#7b71d7"
-export const Example1 = () => {
+export const Example1Complete = () => {
 
     return (<>
         <div css={css`

@@ -16,7 +16,7 @@ const ExampleTabs = (props) => (
       align-items: center;
       flex-direction: row;
 
-      & div {
+      & .fullHeight {
         background: ${colors.surface};
         border: 1px solid ${colors.outline};
         display: flex;
@@ -47,7 +47,7 @@ export const ExampleRender = ({key, elements, examples}) =>
         color: ${colors.secondaryContainer};
       }
     `}>
-        <div css={css`
+        <div className={`fullHeight`} css={css`
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
