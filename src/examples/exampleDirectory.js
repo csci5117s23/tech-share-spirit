@@ -42,6 +42,7 @@ export const examples = [
             (<ExampleFacepaint/>),
         ]
     },
+    {
         id: "comp",
         name: "Composition Example",
         elements: [
