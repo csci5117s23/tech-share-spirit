@@ -14,6 +14,7 @@ const hoverColorNormal = "red";
 const hoverHighlightTextNormal = "white"
 const normal = css`
     background-color: ${backgroundColorNormal};
+    color: ${textColorNormal};
 
     & p {
         max-width: ${paragraphWidth};
@@ -28,7 +29,6 @@ const normal = css`
             color: ${textHighlightNormal};
         }
     }
-    color: ${textColorNormal};
 `
 
 const backgroundColorDark = "rgb(0, 30, 56)";
