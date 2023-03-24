@@ -1,5 +1,3 @@
-import {Example1} from "./example1-css-prop/Example1";
-import {Example1Complete} from "./example1-css-prop/Example1Complete";
 import {ExampleMediaBasic} from "./example-media-queries/ExampleMediaBasicComplete";
 import {ExampleMediaReuse} from "./example-media-queries/ExampleMediaReuseComplete";
 import {ExampleFacepaint} from "./example-media-queries/ExampleFacepaintComplete";
