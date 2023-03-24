@@ -22,23 +22,11 @@ export const examples = [
         ]
     },
     {
-        id: "mediaBasic",
-        name: "Media Queries Ex1",
+        id: "mediaQueries",
+        name: "Media Queries Examples",
         elements: [
             (<ExampleMediaBasic/>),
-        ]
-    },
-    {
-        id: "mediaReuse",
-        name: "Media Queries Ex2",
-        elements: [
             (<ExampleMediaReuse/>),
-        ]
-    },
-    {
-        id: "mediaFacepaint",
-        name: "Media Queries Ex3",
-        elements: [
             (<ExampleFacepaint/>),
         ]
     },
