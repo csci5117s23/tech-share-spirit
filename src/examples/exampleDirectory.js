@@ -1,5 +1,6 @@
 import {Example1} from "./example1-css-prop/Example1";
 import {Example1Complete} from "./example1-css-prop/Example1Complete";
+import {ExampleComp} from "./example-comp/ExampleComp";
 import {ExampleNest} from "./example-nest/ExampleNest";
 import React from "react";
 
@@ -11,6 +12,13 @@ export const examples = [
         elements: [
             (<Example1 />),
             (<Example1Complete />),
+        ]
+    },
+    {
+        id: "comp",
+        name: "Composition example",
+        elements: [
+            (<ExampleComp />)
         ]
     },
     {

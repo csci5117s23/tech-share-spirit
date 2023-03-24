@@ -9,7 +9,7 @@ const paragraphWidth = "500px";
 const backgroundColorNormal = "beige";
 const textColorNormal = "black";
 const highlightNormal = "blue";
-const textHighlightNormal = "rgb(208, 208, 208)";
+const textHighlightNormal = "turquoise";
 const hoverColorNormal = "red";
 const hoverHighlightTextNormal = "white"
 const normal = css`
@@ -33,8 +33,8 @@ const normal = css`
 
 const backgroundColorDark = "rgb(0, 30, 56)";
 const textColorDark = "rgb(208, 208, 208)";
-const highlightDark = "rgb(255, 225, 0)";
-const textHighlightDark = "rgb(128, 128, 128)";
+const highlightDark = "coral";
+const textHighlightDark = "khaki";
 const hoverColorDark = "greenyellow";
 const hoverHighlightTextDark = "black";
 const dark = css`
@@ -45,13 +45,13 @@ const dark = css`
         max-width: ${paragraphWidth};
         &:hover {
             color: ${hoverColorDark};
-            & span {
-                color: ${hoverHighlightTextDark};
-            }
         }
         & span {
             background-color: ${highlightDark};
-            color: ${textHighlightDark}
+            color: ${textHighlightDark};
+            &:hover {
+                color: ${hoverHighlightTextDark};
+            }
         }
     }
 `
