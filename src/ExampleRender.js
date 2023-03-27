@@ -32,13 +32,14 @@ const ExampleTabs = (props) => (
 export const ExampleRender = ({key, elements, examples}) =>
     (<div css={css`
       background: ${colors.tertiary};
-      height: 7.5vh;
       box-shadow: 1px solid ${colors.tertiary};
+      flex-wrap: wrap;
 
       & a {
         text-decoration: none;
-        font-size: 1.25rem;
+        font-size: 1rem;
         font-weight: 600;
+        padding: 8px;
         color: ${colors.onTertiary};
       }
 
@@ -50,8 +51,9 @@ export const ExampleRender = ({key, elements, examples}) =>
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
+            flex-wrap: wrap;
             align-items: center;
-            height: 7.5vh;
+            min-height: 7.5vh;
         `}>
             {examples.map(route => (
                 <Link to={`/${route.id}`}>{route.name}</Link>
