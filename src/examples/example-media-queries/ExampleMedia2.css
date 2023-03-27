@@ -1,0 +1,16 @@
+.exMedia2 {
+    font-size: xxx-large;
+    color: orange;
+}
+
+@media (min-width: 576px) {
+    .exMedia2 {
+        color: gray;
+    }
+}
+
+@media (min-width: 768px) {
+    .exMedia2 {
+        color: blue;
+    }
+}

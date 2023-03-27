@@ -1,6 +1,5 @@
-import {ExampleMediaBasic} from "./example-media-queries/ExampleMediaBasicComplete";
-import {ExampleMediaReuse} from "./example-media-queries/ExampleMediaReuseComplete";
-import {ExampleFacepaint} from "./example-media-queries/ExampleFacepaintComplete";
+import { ExampleMedia1 } from "./example-media-queries/ExampleMedia1";
+import { ExampleMedia2 } from "./example-media-queries/ExampleMedia2";
 import {Example1} from "./example-css-prop/Example1";
 import {Example1Complete} from "./example-css-prop/Example1Complete";
 import {ExampleComp} from "./example-comp/ExampleComp";
@@ -17,27 +16,6 @@ export const examples = [
         elements: [
             (<Example1 />),
             (<Example1Complete />),
-        ]
-    },
-    {
-        id: "mediaBasic",
-        name: "Media Queries Ex1",
-        elements: [
-            (<ExampleMediaBasic/>),
-        ]
-    },
-    {
-        id: "mediaReuse",
-        name: "Media Queries Ex2",
-        elements: [
-            (<ExampleMediaReuse/>),
-        ]
-    },
-    {
-        id: "mediaFacepaint",
-        name: "Media Queries Ex3",
-        elements: [
-            (<ExampleFacepaint/>),
         ]
     },
     {
@@ -60,6 +38,20 @@ export const examples = [
         elements: [
             (<Example4 />),
             (<Example4Complete />),
+        ]
+    },
+    {
+        id: "mediaEx1",
+        name: "Media Queries Example 1",
+        elements: [
+            (<ExampleMedia1/>),
+        ]
+    },
+    {
+        id: "mediaEx2",
+        name: "Media Queries Example 2",
+        elements: [
+            (<ExampleMedia2/>),
         ]
     }
 ]
