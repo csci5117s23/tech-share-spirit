@@ -1,24 +1,48 @@
-import {Example1} from "./example1-css-prop/Example1";
-import {Example1Complete} from "./example1-css-prop/Example1Complete";
+import {ExampleMediaBasic} from "./example-media-queries/ExampleMediaBasicComplete";
+import {ExampleMediaReuse} from "./example-media-queries/ExampleMediaReuseComplete";
+import {ExampleFacepaint} from "./example-media-queries/ExampleFacepaintComplete";
+import {Example1} from "./example-css-prop/Example1";
+import {Example1Complete} from "./example-css-prop/Example1Complete";
 import {ExampleComp} from "./example-comp/ExampleComp";
-import {ExampleNest} from "./example-nest/ExampleNest";
-import {Example4} from "./example4-styled-components/Example4"
-import { Example4Complete } from "./example4-styled-components/Example4Complete";
+import {ExampleNest} from "./example-nested-selector/ExampleNest";
+import {Example4} from "./example-styled-components/Example4"
+import { Example4Complete } from "./example-styled-components/Example4Complete";
 import React from "react";
 
 
 export const examples = [
     {
         id: "ex1",
-        name: "Example 1 - CSS Prop",
+        name: "CSS Prop Example",
         elements: [
             (<Example1 />),
             (<Example1Complete />),
         ]
     },
     {
+        id: "mediaBasic",
+        name: "Media Queries Ex1",
+        elements: [
+            (<ExampleMediaBasic/>),
+        ]
+    },
+    {
+        id: "mediaReuse",
+        name: "Media Queries Ex2",
+        elements: [
+            (<ExampleMediaReuse/>),
+        ]
+    },
+    {
+        id: "mediaFacepaint",
+        name: "Media Queries Ex3",
+        elements: [
+            (<ExampleFacepaint/>),
+        ]
+    },
+    {
         id: "comp",
-        name: "Composition example",
+        name: "Composition Example",
         elements: [
             (<ExampleComp />)
         ]
@@ -27,12 +51,12 @@ export const examples = [
         id: "nest",
         name: "Nested Selector Example",
         elements: [
-            (<ExampleNest />
+            (<ExampleNest />)
         ]
     },
     {
         id: "ex4",
-        name: "Example 4 - Styled Components",
+        name: "Styled Components Example",
         elements: [
             (<Example4 />),
             (<Example4Complete />),

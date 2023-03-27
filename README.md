@@ -27,7 +27,7 @@ set up with other techniques, please consult the [official installation docs](ht
 ### Package Install
 
 ```
-npm install --save @emotion/react @emotion/styled
+npm install --save @emotion/react @emotion/styled facepaint
 ```
 
 ### Setting up CSS Prop
@@ -147,3 +147,112 @@ We'll add in the ``:focus`` and ``:active`` pseudo-classes too, just for good me
 ```
 
 And we're done!
+
+## Example 4?: Styled Components
+
+This example covers styled components, highlighting the basic usage, how to use props with styled components, and how to use styled components with any react component.
+
+### Basic usage
+
+Start with a basic button
+
+```jsx
+<button>my button</button>
+```
+
+Styled components allow you to attach styling to a specific component. For example, lets say you want a flexbox div to put the button in. To accomplish this, you can create a new component and call styled with the div tag. 
+
+```jsx
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+```
+
+Now, you can use the Container component with the starting code. Note that the Container component has the styles specified earlier, and the standard div tag does not.
+
+```jsx
+<Container>
+    <div>
+        <button>my button</button>
+    </div>
+</Container>
+```
+
+### Usage with props
+
+Styled components can also have different styles depending on the props used. For example, lets say you want to have two different background colors for a button component. 
+
+```jsx
+const success = "green";
+const danger = "red";
+
+const MyButton = styled.button`
+    background-color: ${props => (props.success ? success : danger)};
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 50px;
+    color: white;
+`
+```
+
+The background color will be the success color if the MyButton component has the success prop, and will default to the danger color. Adding the MyButton component to the previous example looks like this
+
+```jsx
+<Container>
+    <div>
+        <MyButton success>my button 2</MyButton>
+        <MyButton>my button 2</MyButton>
+    </div>
+</Container>
+```
+
+The first button will be green, and the second will be red
+
+### Usage with any component
+
+Styled components are not limited to basic html tags. You can use them with any react component as long as they accept a className prop.
+As an example, lets use the clickable name component from the last lecture.
+
+```jsx
+import { useState } from "react"
+
+export default function Name({className, name}){
+    const [visible, setVisible] = useState(false);
+
+    function toggleVisible(){
+        setVisible(!visible);
+    }
+    if(visible){
+        return <span className={className} onClick={toggleVisible}> {name} </span>
+    }
+    else{
+        return <span className={className} onClick={toggleVisible}> Click to show! </span>
+    }
+}
+
+```
+
+Notice that it takes in an additional className prop, and that the className prop is used in the html returned. The syntax to make a styled react component looks like this
+
+```jsx
+const SpecialName = styled(Name)`
+  color: purple;
+  font-size: 50px;
+  `
+```
+
+Finally, we can add this to the previous example
+
+```jsx
+<Container>
+    <div>
+        <MyButton success>my button 2</MyButton>
+        <MyButton>my button 2</MyButton>
+    </div>
+    <div>
+        <SpecialName name="me"></SpecialName>
+    </div>
+</Container>
+```
+
