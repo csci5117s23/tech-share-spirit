@@ -5,9 +5,9 @@ import React from "react";
 import {css, jsx} from '@emotion/react'
 
 const base = css`
-    font-size: 2em;
     background-color: orange;
     color: black;
+    font-size: 2em;
 `
 
 const red = css`
