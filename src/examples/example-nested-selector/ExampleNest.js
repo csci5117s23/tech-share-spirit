@@ -2,7 +2,7 @@
 /** @jsxRuntime classic */
 
 import React, {useState} from "react";
-import {css, jsx} from '@emotion/react'
+import {css, jsx} from '@emotion/react';
 
 const paragraphWidth = "500px";
 
@@ -15,6 +15,8 @@ const hoverHighlightTextNormal = "white"
 const normal = css`
     background-color: ${backgroundColorNormal};
     color: ${textColorNormal};
+    font-weight: bold;
+    font-family: Helvetica, Arial, sans-serif;
 
     & p {
         max-width: ${paragraphWidth};
@@ -33,13 +35,15 @@ const normal = css`
 
 const backgroundColorDark = "rgb(0, 30, 56)";
 const textColorDark = "rgb(208, 208, 208)";
-const highlightDark = "coral";
+const highlightDark = "#F04000";
 const textHighlightDark = "khaki";
 const hoverColorDark = "greenyellow";
 const hoverHighlightTextDark = "black";
 const dark = css`
     background-color: ${backgroundColorDark};
     color: ${textColorDark};
+    font-weight: bold;
+    font-family: Helvetica, Arial, sans-serif;
 
     & p {
         max-width: ${paragraphWidth};
@@ -61,7 +65,7 @@ export const ExampleNest = () => {
     let [darkMode, changeMode] = useState(normal);
 
     function toggleMode() {
-        if(darkMode == normal) {
+        if(darkMode === normal) {
             changeMode(dark);
         } else {
             changeMode(normal);

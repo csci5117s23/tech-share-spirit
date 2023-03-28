@@ -1,16 +1,16 @@
 .base {
     background-color: orange;
-    color: white;
+    color: black;
 }
 
 .red {
-    color: red;
+    color: #C70000;
 }
 
 .blue {
-    color: blue;
+    color: #0000FF;
 }
 
 .green {
-    color: green;
+    color: #007500;
 }

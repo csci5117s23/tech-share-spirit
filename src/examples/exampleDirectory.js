@@ -5,7 +5,8 @@ import {Example1} from "./example-css-prop/Example1";
 import {Example1Complete} from "./example-css-prop/Example1Complete";
 import {ExampleComp} from "./example-comp/ExampleComp";
 import {ExampleNest} from "./example-nested-selector/ExampleNest";
-import {Example4} from "./example-styled-components/Example4"
+import {ExampleNest2} from "./example-nested-selector/ExampleNest2";
+import {Example4} from "./example-styled-components/Example4";
 import { Example4Complete } from "./example-styled-components/Example4Complete";
 import React from "react";
 
@@ -51,7 +52,8 @@ export const examples = [
         id: "nest",
         name: "Nested Selector Example",
         elements: [
-            (<ExampleNest />)
+            (<ExampleNest />),
+            (<ExampleNest2 />)
         ]
     },
     {
