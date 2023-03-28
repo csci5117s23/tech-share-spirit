@@ -21,27 +21,6 @@ export const examples = [
         ]
     },
     {
-        id: "mediaBasic",
-        name: "Media Queries Ex1",
-        elements: [
-            (<ExampleMediaBasic/>),
-        ]
-    },
-    {
-        id: "mediaReuse",
-        name: "Media Queries Ex2",
-        elements: [
-            (<ExampleMediaReuse/>),
-        ]
-    },
-    {
-        id: "mediaFacepaint",
-        name: "Media Queries Ex3",
-        elements: [
-            (<ExampleFacepaint/>),
-        ]
-    },
-    {
         id: "comp",
         name: "Composition Example",
         elements: [
@@ -62,6 +41,27 @@ export const examples = [
         elements: [
             (<Example4 />),
             (<Example4Complete />),
+        ]
+    },
+    {
+        id: "mediaBasic",
+        name: "Media Queries Ex1",
+        elements: [
+            (<ExampleMediaBasic/>),
+        ]
+    },
+    {
+        id: "mediaReuse",
+        name: "Media Queries Ex2",
+        elements: [
+            (<ExampleMediaReuse/>),
+        ]
+    },
+    {
+        id: "mediaFacepaint",
+        name: "Media Queries Ex3",
+        elements: [
+            (<ExampleFacepaint/>),
         ]
     }
 ]
