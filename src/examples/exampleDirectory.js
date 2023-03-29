@@ -7,6 +7,7 @@ import {ExampleNest} from "./example-nested-selector/ExampleNest";
 import {Example4} from "./example-styled-components/Example4"
 import { Example4Complete } from "./example-styled-components/Example4Complete";
 import React from "react";
+import {Example1ReactCSS} from "./example-css-prop/Example1ReactCSS";
 
 
 export const examples = [
@@ -14,6 +15,7 @@ export const examples = [
         id: "ex1",
         name: "CSS Prop Example",
         elements: [
+            (<Example1ReactCSS />),
             (<Example1 />),
             (<Example1Complete />),
         ]
