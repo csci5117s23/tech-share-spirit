@@ -148,7 +148,7 @@ We'll add in the ``:focus`` and ``:active`` pseudo-classes too, just for good me
 
 And we're done!
 
-## Example 4?: Styled Components
+## Styled Components
 
 This example covers styled components, highlighting the basic usage, how to use props with styled components, and how to use styled components with any react component.
 
