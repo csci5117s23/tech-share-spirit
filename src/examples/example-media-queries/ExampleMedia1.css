@@ -1,16 +1,16 @@
 .exMedia1 {
     font-size: xxx-large;
-    color: green;
+    background-color: green;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 600px) {
     .exMedia1 {
-        color: gray;
+        background-color: gray;
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
     .exMedia1 {
-        color: hotpink;
+        background-color: hotpink;
     }
 }
