@@ -148,6 +148,155 @@ We'll add in the ``:focus`` and ``:active`` pseudo-classes too, just for good me
 
 And we're done!
 
+## Example 2: Composition
+This example showcases how composition works in Emotion.
+
+### No Emotion
+An html and css file without using Emotion has been provided as a comparison. You can find them in: `/tech-share-spirit/src/examples/example-comp/without-emotion/`.
+
+### Without Emotion
+
+Opening the html in your browser provided in the `without-emotion` folder gives us a page that has 5 lines.  Below is the css file that the html uses to style the text.
+```css
+.base {
+	background-color: orange;
+	color: black;
+	font-size: 2em;
+}
+
+.red {
+	color: #C70000;
+	font-family: Comic Sans MS, Comic Sans;
+}
+
+.blue {
+	color: #0000FF;
+}
+.green {
+	color: #007500;
+}
+```
+Let's imagine, for some reason, that you can't change what's in the classes for css for some reason - maybe you're reusing them elsewhere and changing them would cause one of your webpages to break. The .red css class has been defined so that any class with .red is also in comic-sans. We want the last line to be black and also comic-sans.
+
+As you can see, the line at the bottom is *not* black.  The reason for this is in the html file:
+```html
+<body  style="max-width: 500px">
+<div  class="base">This text will be black!</div>
+<div  class="base red">This text will be red!</div>
+<div  class="base green">This text will be green!</div>
+<div  class="base blue">This text will be blue!</div>
+<div  class="red base">This text should also be black!</div>
+</body>
+```
+This is what composition in regular css looks like: we have each div (after the first) inheriting multiple classes, "composing" them together. On the last line, we've defined base after red in order to have the black color override the red color. However, this seems to have failed.
+
+To fix this without changing the class is a pain: defining .base after .red causes all the text to become black. Defining .red before .base causes the red text to become black. How do we make it so that the last line of text is in comic-sans *and* black? 
+
+Most likely, the easiest solution is to make another class that has black text and comic-sans font. But for a larger application, doing this every time you need to combine styles is simply not extensible. Remembering where the classes are and also where to define them also seems like an extra task that you shouldn't have to do. Emotion agrees: that's where composition comes in.
+
+### With Emotion
+
+Opening up the  `ExampleComp.js` file gives us a closer look at the example's underlying structure:
+```jsx
+<div  css={base}>This text will be black!</div>
+<div  css={[base, red]}>This text will be red!</div>
+<div  css={[base, green]}>This text will be green!</div>
+<div  css={[base, blue]}>This text will be blue!</div>
+<div  css={[red, base]}>This text should also be black!</div>
+```
+The .js file is designed to be as close to the html and css files as possible. Both the html and css styles are included in the same file.
+
+In Emotion, you can combine multiple styles by passing them together as an array, as seen above. However, you might notice that the example actually provides what we wanted: the bottom line is in comic-sans and also has black text. Emotion's composition merges styles in the order that you use them. This means that whatever's last in the array overwrites what comes before it. This provides a much easier, more extendable solution for combining styles. No need to worry about where the style was defined!
+
+## Example 3: Nested Selectors
+This example showcases how you can use nested selectors in Emotion.
+
+A raw html, css, and javascript file has been provided as a comparison. You can find them in: `/tech-share-spirit/src/examples/example-nested-selector/without-emotion/`.
+
+### Without Emotion
+Opening the html in your browser provided in the `without-emotion` folder gives us a page with a bunch of filler text (with some parts highlighted), and a header that tells us to hover over a paragraph. Doing so changes the color of the paragraph, and clicking the button at the bottom changes the color scheme of the page to a darker version, hence the "dark mode". 
+
+### With Emotion
+Let's open `ExampleNest.js` (not ExampleNest2! That's for later).  We've defined some properties outside the prop in case we ever want to reuse them. Taking a look at the css prop "normal", we can see that it uses the "&" symbol, something that's not in regular css. 
+```jsx
+const normal = css`
+	background-color: ${backgroundColorNormal};
+	color: ${textColorNormal};
+	font-weight: bold;
+	font-family: Helvetica, Arial, sans-serif;
+
+	& p {
+		max-width: ${paragraphWidth};
+		&:hover {
+			color: ${hoverColorNormal};
+			& span {
+				color: ${hoverHighlightTextNormal};
+			}
+		}
+		& span {
+			background-color: ${highlightNormal};
+			color: ${textHighlightNormal};
+		}
+	}
+`
+```
+This is the nested selector. The & represents the current prop, and anything after it means that it is a child of that class. So `& p` defines anything that has a p tag within the prop. 
+
+The "&:hover" means "& p:hover", since it's nested within the "& p" selector, which defines the style for when you hover over anything that has the p tag.
+
+The "& span" means "& p:hover span", which is equivalent to our "p:hover .highlight" in displayPage.css. This selector says, for anything within a span, that is being hovered over, that is also a child of the p tag, which is then a child of the normal tag, change the color to hoverHighlightTextNormal. This seems really complicated, but basically it's saying that if the text has a highlight, when it's hovered over, change it to this color instead of the regular hover color.
+
+Take a look at the example in your browser before moving on, so that you can verify that the functionality of the example is the same as displayPage.html.
+
+There's something different about the "dark" css prop, though, which is the example's equivalent of the .darkmode class:
+```jsx
+const dark= css`
+	background-color: ${backgroundColorDark};
+	color: ${textColorDark};
+	font-weight: bold;
+	font-family: Helvetica, Arial, sans-serif;
+
+	& p {
+		max-width: ${paragraphWidth};
+		&:hover {
+			color: ${hoverColorDark};
+		}
+		& span{
+			background-color: ${highlightDark};
+			color: ${textHighlightDark};
+			&:hover {
+				color: ${hoverHighlightTextNormal};
+			}
+		}
+	}
+`
+```
+Can you notice the difference? Compared to the "normal" css prop, the way that span's hover is nested is different! In this case, the hover color is nested directly under "& p & span", rather than "& p:hover span". Take a look at the example and switch to dark mode. You'll notice that the text only changes for the highlight when you mouse over the highlight, rather than the paragraph alone! Just by changing how we nest our styles, we can give the page a whole new functionality. 
+
+### Example 3.5: Nested Selectors *Outside* of the Prop?
+Let's take a look at ExampleNest2.js:
+```jsx
+const exampleNest = css`
+    background-color: black;
+    color: turquoise;
+    font-weight: bold;
+    font-size: 2em;
+
+    span & {
+        color: magenta;
+    }
+`
+export const ExampleNest2 = () => {
+    return (<>
+        <p css={exampleNest}>This text is turquoise because it's not in a span!</p>
+        <span>
+            <p css={exampleNest}>This text is magenta because it's in a span!</p>
+        </span>
+    </>);
+}
+```
+What's going on here? The & sign is now after span, what does that mean? That means that if the css prop is used in something has a span tag as a parent, then it will change the color of whatever is using the "exampleNest" prop to magenta. You can see this on the right side under "Nested Selector Example" in your browser. Because the second line is within a span tag, the text changes to magenta, even though we've used the same css prop. Nested selectors are very useful in organizing the look of your page, and makes it much easier to read and understand the css.
+
 ## Styled Components
 
 This example covers styled components, highlighting the basic usage, how to use props with styled components, and how to use styled components with any react component.
