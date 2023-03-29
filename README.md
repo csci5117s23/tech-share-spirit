@@ -180,12 +180,12 @@ Let's imagine, for some reason, that you can't change what's in the classes for 
 
 As you can see, the line at the bottom is *not* black.  The reason for this is in the html file:
 ```html
-<body  style="max-width: 500px">
-<div  class="base">This text will be black!</div>
-<div  class="base red">This text will be red!</div>
-<div  class="base green">This text will be green!</div>
-<div  class="base blue">This text will be blue!</div>
-<div  class="red base">This text should also be black!</div>
+<body style="max-width: 500px">
+	<div class="base">This text will be black!</div>
+	<div class="base red">This text will be red!</div>
+	<div class="base green">This text will be green!</div>
+	<div class="base blue">This text will be blue!</div>
+	<div class="red base">This text should also be black!</div>
 </body>
 ```
 This is what composition in regular css looks like: we have each div (after the first) inheriting multiple classes, "composing" them together. On the last line, we've defined base after red in order to have the black color override the red color. However, this seems to have failed.
@@ -196,13 +196,17 @@ Most likely, the easiest solution is to make another class that has black text a
 
 ### With Emotion
 
-Opening up the  `ExampleComp.js` file gives us a closer look at the example's underlying structure:
+Opening up the `ExampleComp.js` file gives us a closer look at the example's underlying structure:
 ```jsx
-<div  css={base}>This text will be black!</div>
-<div  css={[base, red]}>This text will be red!</div>
-<div  css={[base, green]}>This text will be green!</div>
-<div  css={[base, blue]}>This text will be blue!</div>
-<div  css={[red, base]}>This text should also be black!</div>
+export const ExampleComp = () => {
+    return(<>
+        <div css={base}>This text will be black!</div>
+        <div css={[base, red]}>This text will be red!</div>
+        <div css={[base, green]}>This text will be green!</div>
+        <div css={[base, blue]}>This text will be blue!</div>
+        <div css={[red, base]}>This text should also be black!</div>
+    </>);
+}
 ```
 The .js file is designed to be as close to the html and css files as possible. Both the html and css styles are included in the same file.
 
