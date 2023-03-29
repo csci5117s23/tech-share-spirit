@@ -256,3 +256,124 @@ Finally, we can add this to the previous example
 </Container>
 ```
 
+## Media Queries
+This section is formulated based on the [offical docs](https://emotion.sh/docs/media-queries) from Emotion.
+
+### About Media Queries
+Media query is a CSS technique that allows us to apply different style sheets on different devices. Most of you may have seen this before on the layouts provided by [Pure CSS](https://purecss.io/layouts/). Here is a very simple example of using media queries to change the background color of a div on different screen width:
+
+React component in Javascript:
+```jsx
+import './exampleMedia1.css'
+
+export function ExampleMedia1() {
+  return <div class='exMedia1'>
+    Some text.
+  </div>
+}
+```
+
+And the corresponding ``exampleMedia1.css``:
+```jsx
+.exMedia1 {
+    font-size: xxx-large;
+    background-color: green;
+}
+
+@media (min-width: 600px) {
+    .exMedia1 {
+        background-color: gray;
+    }
+}
+
+@media (min-width: 800px) {
+    .exMedia1 {
+        background-color: hotpink;
+    }
+}
+```
+What the media queries in ``exampleMedia1.css`` do is to set the ``background-color`` of the ``div`` to ``hotpink`` when the width of screen is larger than ``800px``, set the color to ``green`` when the width is smaller than ``600px``, and set the color to ``gray`` otherwise.
+
+### Basic Media Queries in CSS Props
+With Emotion we can add the media queries directly to the ``css`` prop. And you do not need to specify any selectors inside the media query block. We can re-write the example above like this:
+
+```jsx
+/** @jsxImportSource @emotion/react */
+
+import { css } from '@emotion/react'
+
+export function ExampleMedia1() {
+  return <div
+    css={css`
+      background-color: green;
+      @media (min-width: 600px) {
+        background-color: gray;
+      }
+      @media (min-width: 800px) {
+        background-color: hotpink;
+      }
+    `}
+  >
+    Some text.
+  </div>
+}
+```
+
+### Reuse the Media Queries
+One issue from the previous example is that the media queries are not reusable -- Imagine a situation like this: You have two or more different components that all have some style changes on breakpoints ``600px`` and ``800px``. Now you want to change the two breakpoint values to ``500px`` and ``900px``. What you may want to do is to go to each of the components that have these two breakpoint values and change them. This is repeated work and may lead to UI inconsistency if you are not careful enough.
+
+In order to deal with this issue, Emotion allows us to move the media queries into a constant variable which can be shared between multiple different components. And each component can just refer to this variable whenever a media query occurs.
+
+```jsx
+/** @jsxImportSource @emotion/react */
+
+export const breakpoints = [600, 800]
+
+const mq = breakpoints.map(bp => `@media (min-width: ${bp}px)`)
+
+export function ExampleMedia1() {
+  return <div
+    css={
+      {
+        backgroundColor: 'green',
+        [mq[0]]: {
+          backgroundColor: 'gray'
+        },
+        [mq[1]]: {
+          backgroundColor: 'hotpink'
+        }
+      }
+    }
+  >
+    Some text.
+  </div>
+}
+```
+As you can see in the code snippet above, other components can just refer to the exported constant ``breakpoints`` if they want to do media queries on the same breakpoints. (Note: We are using [object styles](https://emotion.sh/docs/object-styles) for the css prop in the code snippet above, you can also use string styles like before).
+
+### Define Each CSS Property at Each Media Query Using Arrays
+As you can see in this example above, we need to refer to the media queries variable multiple times for changing the same property ``backgroundColor`` at different breakpoints.
+
+In order to deal with this issue, Emotion provides us a tool called "facepaint." Facepaint allows us to define the values of each CSS property at multiple breakpoints using an array.
+
+```jsx
+import facepaint from 'facepaint'
+
+export const breakpoints = [576, 768]
+
+const mq = facepaint(breakpoints.map(bp => `@media (min-width: ${bp}px)`))
+
+export function ExampleMedia1() {
+  return <div
+    css={
+      mq({
+        backgroundColor: ['green', 'gray', 'hotpink']
+      })
+    }
+  >
+    Some text.
+  </div>
+}
+```
+As you can see the code snippet above, the css prop is much cleaner (Note: you must use the object styles here due to the limitaions of facepaint).
+
