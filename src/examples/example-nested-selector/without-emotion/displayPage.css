@@ -5,6 +5,8 @@ p {
 body {
     color: black;
     background-color: beige;
+    font-weight: bold;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 .highlight {
@@ -26,7 +28,7 @@ p:hover .highlight {
 }
 
 .darkmode .highlight {
-    background-color: coral;
+    background-color: #F04000;
     color: khaki;
 }
 

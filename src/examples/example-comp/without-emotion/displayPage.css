@@ -1,16 +1,18 @@
 .base {
     background-color: orange;
-    color: white;
+    color: black;
+    font-size: 2em;
 }
 
 .red {
-    color: red;
+    color: #C70000;
+    font-family: Comic Sans MS, Comic Sans;
 }
 
 .blue {
-    color: blue;
+    color: #0000FF;
 }
 
 .green {
-    color: green;
+    color: #007500;
 }
