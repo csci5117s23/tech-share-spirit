@@ -10,6 +10,7 @@ Set up the examples we're going to go through in this tech share.
 
 ```
 git clone https://github.com/csci5117s23/tech-share-spirit.git
+cd tech-share-spirit
 ```
 
 ### Setup Project
