@@ -261,11 +261,11 @@ const dark= css`
 		&:hover {
 			color: ${hoverColorDark};
 		}
-		& span{
+		& span {
 			background-color: ${highlightDark};
 			color: ${textHighlightDark};
 			&:hover {
-				color: ${hoverHighlightTextNormal};
+				color: ${hoverHighlightTextDark};
 			}
 		}
 	}
