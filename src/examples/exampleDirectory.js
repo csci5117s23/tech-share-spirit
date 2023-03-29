@@ -1,6 +1,5 @@
-import {ExampleMediaBasic} from "./example-media-queries/ExampleMediaBasicComplete";
-import {ExampleMediaReuse} from "./example-media-queries/ExampleMediaReuseComplete";
-import {ExampleFacepaint} from "./example-media-queries/ExampleFacepaintComplete";
+import { ExampleMedia1 } from "./example-media-queries/ExampleMedia1";
+import { ExampleMedia2 } from "./example-media-queries/ExampleMedia2";
 import {Example1} from "./example-css-prop/Example1";
 import {Example1Complete} from "./example-css-prop/Example1Complete";
 import {ExampleComp} from "./example-comp/ExampleComp";
@@ -9,6 +8,7 @@ import {ExampleNest2} from "./example-nested-selector/ExampleNest2";
 import {Example4} from "./example-styled-components/Example4";
 import { Example4Complete } from "./example-styled-components/Example4Complete";
 import React from "react";
+import {Example1ReactCSS} from "./example-css-prop/Example1ReactCSS";
 
 
 export const examples = [
@@ -16,6 +16,7 @@ export const examples = [
         id: "ex1",
         name: "CSS Prop Example",
         elements: [
+            (<Example1ReactCSS />),
             (<Example1 />),
             (<Example1Complete />),
         ]
@@ -44,24 +45,17 @@ export const examples = [
         ]
     },
     {
-        id: "mediaBasic",
-        name: "Media Queries Ex1",
+        id: "mediaEx1",
+        name: "Media Queries Example 1",
         elements: [
-            (<ExampleMediaBasic/>),
+            (<ExampleMedia1/>),
         ]
     },
     {
-        id: "mediaReuse",
-        name: "Media Queries Ex2",
+        id: "mediaEx2",
+        name: "Media Queries Example 2",
         elements: [
-            (<ExampleMediaReuse/>),
-        ]
-    },
-    {
-        id: "mediaFacepaint",
-        name: "Media Queries Ex3",
-        elements: [
-            (<ExampleFacepaint/>),
+            (<ExampleMedia2/>),
         ]
     }
 ]
