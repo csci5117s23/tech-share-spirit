@@ -40,7 +40,7 @@ export function ExampleMedia1() {
 // ========== Define the CSS Property (color) at Each Media Query (breakpoint) Using an Array ==========
 // import facepaint from 'facepaint'
 
-// export const breakpoints = [576, 768]
+// export const breakpoints = [600, 800]
 
 // const mq = facepaint(breakpoints.map(bp => `@media (min-width: ${bp}px)`))
 
