@@ -149,10 +149,9 @@ We'll add in the ``:focus`` and ``:active`` pseudo-classes too, just for good me
 
 And we're done!
 
-## Example 2: Composition
+## Composition
 This example showcases how composition works in Emotion.
 
-### No Emotion
 An html and css file without using Emotion has been provided as a comparison. You can find them in: `/tech-share-spirit/src/examples/example-comp/without-emotion/`.
 
 ### Without Emotion
@@ -213,7 +212,7 @@ The .js file is designed to be as close to the html and css files as possible. B
 
 In Emotion, you can combine multiple styles by passing them together as an array, as seen above. However, you might notice that the example actually provides what we wanted: the bottom line is in comic-sans and also has black text. Emotion's composition merges styles in the order that you use them. This means that whatever's last in the array overwrites what comes before it. This provides a much easier, more extendable solution for combining styles. No need to worry about where the style was defined!
 
-## Example 3: Nested Selectors
+## Nested Selectors
 This example showcases how you can use nested selectors in Emotion.
 
 A raw html, css, and javascript file has been provided as a comparison. You can find them in: `/tech-share-spirit/src/examples/example-nested-selector/without-emotion/`.
